@@ -13,7 +13,6 @@
         
         if (selectBox.hasClass(classShowOptions)) {
             selectBox.removeClass(classShowOptions)
-            console.log("selectBox.hasClass(classShowOptions)", selectOptionOpenId)
             selectOptionOpenId = "";
         } else {
             selectBox.addClass(classShowOptions)
@@ -37,7 +36,7 @@
     window.addEventListener("click", function (event) {
         var $target = $(event.target);
         var hncSelectWrap = $target.closest(hncSelectWrapClassName);
-        if (!hncSelectWrap.length) {
+        if (!hncSelectWrap.length && selectOptionOpenId != null && selectOptionOpenId != undefined && selectOptionOpenId != "") {
             $(`#${selectOptionOpenId}`).find(hncSelectBoxClassName).removeClass(classShowOptions)
             selectOptionOpenId = "";
         }
