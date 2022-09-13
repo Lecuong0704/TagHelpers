@@ -31,11 +31,14 @@
   border: 1px solid #659BE0;
 }
 .hnc-input-custom .hnc-input-box .icon-box {
-  width: 34px;
+  width: 38px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #3e3e3e;
+}
+.hnc-input-custom .hnc-input-box .hnc-input {
+  height: 32px;
 }
 .hnc-input-custom .hnc-input-box .hnc-input, .hnc-input-custom .hnc-input-box .hnc-textarea {
   flex-grow: 2;
@@ -85,7 +88,7 @@
   max-width: calc(100% - 34px);
 }
 .hnc-input-custom.hnc-select-wrap .hnc-select-box .select-box .selected {
-  height: 34px;
+  height: 32px;
   padding: 4px 10px;
   display: flex;
   justify-content: space-between;
@@ -131,7 +134,7 @@
   color: #fff;
 }
 .hnc-input-custom.hnc-select-wrap .hnc-select-box .icon-box {
-  width: 34px;
+  width: 38px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -157,4 +160,4 @@
   border-top: none;
 }
 
-/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22file:///C:/Users/Cuong%2520DEV/source/repos/demo/TagHelpers/TagHelpers/wwwroot/scss/styles.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22AAAC;EACG;;;AAGJ;EACI;EACA;EACA;EACA;;AAEA;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAGJ;EACI;EACA;EACA;EACA;EACA;EACA;;AAEA;EACI;;AAGJ;EACI;EACA;EACA;EACA;EACA;;AAGJ;EACI;EACA;EACA;EACA;EACA;;AAEA;EACI;;AAGJ;EACI;;AAGJ;EACI;;AAMR;EACI;EACA;EACA;EACA;EACA;EACA;;AAKJ;EACI;;AAGJ;EACI;;AAKJ;EACI;EACA;EACA;EACA;EACA;;AAEA;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACI;EACA;EACA;EACA;EACA;;AAEA;EACI;EACA;EACA;EACA;EACA;;AAEA;EACI;;AAQZ;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACI;EACA;EACA;EACA;EACA;;AAGJ;EACI;EACA;;AAEA;EACI;EACA;;AAGJ;EACI;EACA;;AAMhB;EACI;EACA;EACA;EACA;EACA;;AAGJ;EACI;;AAEA;EACI;;AAGJ;EACI;;AAIA;EACI;;AAIR;EACI;EACA;EACA;EACA;EACA%22%7D */
+/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22file:///C:/Users/Cuong%2520DEV/source/repos/demo/TagHelpers/TagHelpers/wwwroot/scss/styles.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22AAAC;EACG;;;AAGJ;EACI;EACA;EACA;EACA;;AAEA;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAGJ;EACI;EACA;EACA;EACA;EACA;EACA;;AAGA;EACI;;AAGJ;EACI;EACA;EACA;EACA;EACA;;AAGJ;EACI;;AAGJ;EACI;EACA;EACA;EACA;EACA;;AAEA;EACI;;AAGJ;EACI;;AAGJ;EACI;;AAMR;EACI;EACA;EACA;EACA;EACA;EACA;;AAKJ;EACI;;AAGJ;EACI;;AAKJ;EACI;EACA;EACA;EACA;EACA;;AAEA;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACI;EACA;EACA;EACA;EACA;;AAEA;EACI;EACA;EACA;EACA;EACA;;AAEA;EACI;;AAQZ;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACI;EACA;EACA;EACA;EACA;;AAGJ;EACI;EACA;;AAEA;EACI;EACA;;AAGJ;EACI;EACA;;AAMhB;EACI;EACA;EACA;EACA;EACA;;AAGJ;EACI;;AAEA;EACI;;AAGJ;EACI;;AAIA;EACI;;AAIR;EACI;EACA;EACA;EACA;EACA%22%7D */

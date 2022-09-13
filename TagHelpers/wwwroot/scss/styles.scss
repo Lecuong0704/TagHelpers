@@ -28,16 +28,21 @@
         font-size: 14px;
         flex-direction: row-reverse;
 
+
         &:focus-within {
             border: 1px solid #659BE0;
         }
 
         .icon-box {
-            width: 34px;
+            width: 38px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #3e3e3e;
+        }
+
+        .hnc-input {
+            height: 32px;
         }
 
         .hnc-input, .hnc-textarea {
@@ -101,7 +106,7 @@
                 max-width: calc(100% - 34px);
 
                 .selected {
-                    height: 34px;
+                    height: 32px;
                     padding: 4px 10px;
                     display: flex;
                     justify-content: space-between;
@@ -159,7 +164,7 @@
             }
 
             .icon-box {
-                width: 34px;
+                width: 38px;
                 display: flex;
                 align-items: center;
                 justify-content: center;

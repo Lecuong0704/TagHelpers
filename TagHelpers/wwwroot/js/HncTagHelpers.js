@@ -10,13 +10,14 @@
     $selected.on("click", function () {
         var hncSelectWrap = $(this).closest(hncSelectWrapClassName);
         var selectBox = hncSelectWrap.find(hncSelectBoxClassName);
+        var id = hncSelectWrap.attr("id");
         
         if (selectBox.hasClass(classShowOptions)) {
             selectBox.removeClass(classShowOptions)
             selectOptionOpenId = "";
         } else {
             selectBox.addClass(classShowOptions)
-            if (selectOptionOpenId != null && selectOptionOpenId != undefined && selectOptionOpenId != "") {
+            if (selectOptionOpenId != id && selectOptionOpenId != null && selectOptionOpenId != undefined && selectOptionOpenId != "") {
                 $(`#${selectOptionOpenId}`).find(hncSelectBoxClassName).removeClass(classShowOptions)
             }
             selectOptionOpenId = hncSelectWrap.attr("id")
@@ -30,6 +31,7 @@
         setValueSelected(this)
         if (!isMultiSelect) {
             selectBox.removeClass(classShowOptions)
+            selectOptionOpenId = "";
         }
     })
 
