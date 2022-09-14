@@ -1,4 +1,116 @@
-﻿$(document).ready(function () {
+﻿function removeElement(array, elem) {
+    var index = array.indexOf(elem.toString());
+    if (index > -1) {
+        array.splice(index, 1);
+    }
+}
+
+function randstr(prefix) {
+    return Math.random().toString(36).replace('0.', prefix || '');
+}
+
+/////////////// Start script Tags ///////////////////
+
+var $tagsBox = $(".tags-box")
+var $tagsBtnDelete = $(".tag-icon-delete")
+var hncmuaTagsWrapClassName = ".hnc-tags-wrap"
+var inputTagsSetValueClassName = ".input-tags-set-value"
+var inputHideTagsClassName = ".input-hide"
+var tagItemClassName = ".tag-item"
+var $inputTagsSetValue = $(inputTagsSetValueClassName)
+var prefixTagsHelper = "tags_"
+
+
+$inputTagsSetValue.keyup(function (e) {
+    var key = e.originalEvent.key;
+
+    if (key != 'Enter') {
+        return;
+    }
+    var value = $(this).val();
+    setTagsInputValue(this, value)
+})
+
+function setTagsInputValue(el, val) {
+    var hncmuaTagsWrap = $(el).closest(hncmuaTagsWrapClassName)
+    var inputHide = hncmuaTagsWrap.find(inputHideTagsClassName)
+    var inputSetValue = $(el)
+
+    var arrValue = getInputHideValue(el)
+    arrValue.push(val);
+
+    inputHide.val(arrValue.join(","))
+    inputSetValue.val("");
+    renderTags(el, arrValue)
+
+}
+
+function renderTags(el, newArrValue) {
+    var hncmuaTagsWrap = $(el).closest(hncmuaTagsWrapClassName)
+    var tags = hncmuaTagsWrap.find(".tags-box")
+    var inputSetValue = hncmuaTagsWrap.find(inputTagsSetValueClassName)
+
+    // Xóa các tag đã có
+    var oldTags = tags.find(".tag-item")
+    oldTags.each(function () {
+        $(this).remove()
+    })
+    // Tạo các tag theo danh sách mới
+    var html = ""
+    newArrValue.forEach((x,i) => {
+        html += `<div class="tag-item" id="tag-item-${i}">
+				    <div class="tag-value">${x}</div>
+				    <div class="tag-delete-btn"><i class="far fa-times-circle" onclick="deleteTag(this)" ></i></div>
+			    </div>`
+    })
+
+    inputSetValue.before(html)
+}
+
+function getInputHideValue(el) {
+    var hncmuaTagsWrap = $(el).closest(hncmuaTagsWrapClassName)
+    var inputHide = hncmuaTagsWrap.find(inputHideTagsClassName)
+    var arrValue = inputHide.val().split(",")
+    if (arrValue == null || arrValue == undefined) {
+        arrValue = []
+    }
+    return arrValue.filter(x => x != '');
+}
+
+
+function deleteTag(el) {
+    var hncmuaTagsWrap = $(el).closest(hncmuaTagsWrapClassName)
+    var listBtnDelete = hncmuaTagsWrap.find(".fa-times-circle")
+    var arrValue = getInputHideValue(el)
+    var tagItemId = $(el).closest(tagItemClassName).attr("id")
+    var inputHide = hncmuaTagsWrap.find(inputHideTagsClassName)
+    listBtnDelete.each(function (index, el) {
+        var tagItem = $(el).closest(tagItemClassName)
+        var id = tagItem.attr("id")
+        if (id == tagItemId) {
+            tagItem.remove();
+            if (index > -1) { 
+                arrValue.splice(index, 1);
+            }
+
+        }
+    })
+    renderTags(el, arrValue);
+    inputHide.val(arrValue.join(","))
+}
+
+$tagsBox.on("click", function () {
+    var hncmuaTagsWrap = $(this).closest(hncmuaTagsWrapClassName)
+    var inputSetValue = hncmuaTagsWrap.find(inputTagsSetValueClassName)
+    inputSetValue.focus()
+})
+
+/////////////// End script Tags ///////////////////
+
+
+$(document).ready(function () {
+
+    /////////////// Start script select option ///////////////////
     var $selected = $(".selected");
     var $selectItem = $(".select-item");
     var hncSelectWrapClassName = ".hnc-select-wrap";
@@ -11,7 +123,7 @@
         var hncSelectWrap = $(this).closest(hncSelectWrapClassName);
         var selectBox = hncSelectWrap.find(hncSelectBoxClassName);
         var id = hncSelectWrap.attr("id");
-        
+
         if (selectBox.hasClass(classShowOptions)) {
             selectBox.removeClass(classShowOptions)
             selectOptionOpenId = "";
@@ -103,11 +215,8 @@
         selected.text(newText)
     }
 
-    function removeElement(array, elem) {
-        var index = array.indexOf(elem.toString());
-        if (index > -1) {
-            array.splice(index, 1);
-        }
-    }
-
+    /////////////// End script select option ///////////////////
 })
+
+
+

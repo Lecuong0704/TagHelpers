@@ -13,18 +13,18 @@
 		</div>
 		<div class="row">
 			<div class="col-6">
-				<hnc-input for="@Model.Amount" placeholder="Tổng tiền" icon-class-name="fas fa-dollar-sign" label="Số tiền"></hnc-input>
+				<hnc-input for="@Model.Amount" icon-class-name="fas fa-dollar-sign" label="Số tiền"></hnc-input>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-6">
-				<hnc-select for="@Model.Position" label="Chức vụ" data="@Model.Positions" is-multi-select="true"></hnc-select>
+				<hnc-select for="@Model.Position" label="Multi select" data="@Model.Positions" is-multi-select="true"></hnc-select>
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="col-6">
-				<hnc-select for="@Model.Position" label="Chức vụ" data="@Model.Positions" ></hnc-select>
+				<hnc-select for="@Model.Position" label="Select" data="@Model.Positions"></hnc-select>
 			</div>
 		</div>
 		<div class="row">
@@ -32,6 +32,12 @@
 				<hnc-textarea for="@Model.Detail" icon-class-name="fas fa-bell" rows="5" class-name="no-resize"></hnc-textarea>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-6">
+				<hnc-tags for="@Model.Detail" label="Tags" icon-class-name="fas fa-bell"></hnc-tags>
+			</div>
+		</div>
+
 		<div class="row">
 			<div class="col-6">
 				<hnc-input for="@Model.IsMale" label="Là nam giới"></hnc-input>

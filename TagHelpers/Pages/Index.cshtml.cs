@@ -20,6 +20,7 @@ namespace HncTagHelpers.Pages
             Positions.Add(new HncSelectItemModel("Nhân viên kinh doanh", "6"));
             Positions.Add(new HncSelectItemModel("Nhân viên chăm sóc khách hàng", "7"));
             Positions.Add(new HncSelectItemModel("Nhân viên giao hàng", "8"));
+            Detail = "Cường,Chiến,Hiếu,Kiên";
         }
 
         public void OnGet()
