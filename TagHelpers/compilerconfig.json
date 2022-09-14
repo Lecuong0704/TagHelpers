@@ -1,8 +1,7 @@
 ﻿[
   {
-    "outputFile": "wwwroot/css/styles.css",
-    //"outputFile": "Themes/hncmua-v4/Content/Styles/Styles.css",
-    "inputFile": "wwwroot/scss/styles.scss",
+    "outputFile": "wwwroot/lib/hnc-tag-helpers/hnc-tag-helpers.css",
+    "inputFile": "wwwroot/lib/hnc-tag-helpers/hnc-tag-helpers.scss",
     "minify": {
       "enabled": true
     },

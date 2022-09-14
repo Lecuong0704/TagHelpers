@@ -16,9 +16,9 @@
         public ModelExpression For { get; set; }
 
         public string Label { get; set; }
-        
+
         public string ClassName { get; set; }
-        
+
         public string Value { get; set; }
 
         public string IconClassName { get; set; }
@@ -40,7 +40,7 @@
             var labelName = !string.IsNullOrEmpty(Label) ? Label : For.Name;
             var label = $"<div title=\"{labelName}\" class=\"hnc-label\">{labelName}</div>";
             output.Content.AppendHtml(label);
-            if(For.ModelExplorer.ModelType.Name != "Boolean")
+            if (For.ModelExplorer.ModelType.Name != "Boolean")
             {
                 // Thêm Icon
                 var icon = "<div class=\"hnc-input-box\">";
@@ -57,12 +57,12 @@
             {
                 htmlAttributes.Add("placeholder", Placeholder);
             }
-          
+
             //contextualize IHtmlHelper
             var viewContextAware = _htmlHelper as IViewContextAware;
             viewContextAware?.Contextualize(ViewContext);
 
-            var htmlOutput = _htmlHelper.Editor(For.Name, null , new { htmlAttributes });
+            var htmlOutput = _htmlHelper.Editor(For.Name, null, new { htmlAttributes });
 
             output.Content.AppendHtml(htmlOutput);
             if (For.ModelExplorer.ModelType.Name != "Boolean")
@@ -72,7 +72,7 @@
             }
             var lastHtml = "</div>";
             output.Content.AppendHtml(lastHtml);
-            
+
         }
     }
 }

@@ -60,7 +60,7 @@
             var viewContextAware = _htmlHelper as IViewContextAware;
             viewContextAware?.Contextualize(ViewContext);
 
-            var htmlOutput = _htmlHelper.TextArea(For.Name,  htmlAttributes );
+            var htmlOutput = _htmlHelper.TextArea(For.Name, htmlAttributes);
             output.Content.AppendHtml(htmlOutput);
 
             var iconClassName = !string.IsNullOrEmpty(IconClassName) ? IconClassName : "fas fa-align-left";

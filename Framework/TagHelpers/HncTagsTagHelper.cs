@@ -26,9 +26,9 @@
             {
                 Value = For.Model.ToString();
                 var arr = Value.Split(",").ToList();
-                if(arr != null && arr.Any())
+                if (arr != null && arr.Any())
                 {
-                    var newArr = arr.Where(x=> !string.IsNullOrEmpty(x)).ToList();
+                    var newArr = arr.Where(x => !string.IsNullOrEmpty(x)).ToList();
                     var index = 0;
                     foreach (var item in newArr)
                     {
