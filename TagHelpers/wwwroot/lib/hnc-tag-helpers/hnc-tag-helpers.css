@@ -1,5 +1,6 @@
 ﻿* {
   --colorBlue: #659BE0;
+  --colorBlueLight: #c5d7ed;
 }
 
 .hnc-input-custom {
@@ -26,6 +27,15 @@
   width: 70%;
   font-size: 14px;
   flex-direction: row-reverse;
+}
+.hnc-input-custom .hnc-input-box.is-checkbox {
+  border: none;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+.hnc-input-custom .hnc-input-box.is-checkbox .check-box {
+  flex-grow: unset;
+  height: 20px;
 }
 .hnc-input-custom .hnc-input-box:focus-within {
   border: 1px solid #659BE0;
@@ -56,13 +66,78 @@
 .hnc-input-custom .hnc-input-box .hnc-input:focus-visible, .hnc-input-custom .hnc-input-box .hnc-textarea:focus-visible {
   outline: none;
 }
-.hnc-input-custom .hnc-input.check-box {
+.hnc-input-custom .is-checkbox {
+  position: relative;
+  padding-top: 6px;
+  border: none;
+  /* Hide the browser's default checkbox */
+  /* Create a custom checkbox */
+  /* On mouse-over, add a grey background color */
+  /* When the checkbox is checked, add a blue background */
+  /* Create the checkmark/indicator (hidden when not checked) */
+  /* Show the checkmark when checked */
+  /* Style the checkmark/indicator */
+}
+.hnc-input-custom .is-checkbox:focus-within {
+  border: none;
+}
+.hnc-input-custom .is-checkbox.check-box {
   padding: 0;
-  margin-top: 5px;
+  margin-top: 6px;
   cursor: pointer;
   transition: none;
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
+}
+.hnc-input-custom .is-checkbox.check-box:checked ~ .checkmark {
+  background-color: var(--colorBlue);
+}
+.hnc-input-custom .is-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  z-index: 2;
+}
+.hnc-input-custom .is-checkbox .checkmark {
+  position: absolute;
+  top: 6px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #fff;
+  border-radius: 3px;
+  border: 1px solid var(--colorBlue);
+}
+.hnc-input-custom .is-checkbox:hover input ~ .checkmark {
+  background-color: var(--colorBlueLight);
+}
+.hnc-input-custom .is-checkbox:hover input ~ .checkmark:after {
+  display: block;
+}
+.hnc-input-custom .is-checkbox input:checked ~ .checkmark {
+  display: block;
+  background: var(--colorBlue);
+}
+.hnc-input-custom .is-checkbox .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.hnc-input-custom .is-checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+.hnc-input-custom .is-checkbox .checkmark:after {
+  left: 6px;
+  top: 3px;
+  width: 6px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 .hnc-input-custom.hnc-textarea-wrap .icon-box, .hnc-input-custom.hnc-tags-wrap .icon-box {
   max-height: 32px;
@@ -204,5 +279,83 @@
   border: #ddd 1px solid;
   border-top: none;
 }
+.hnc-input-custom.hnc-radio-wrap .radios {
+  width: 70%;
+  padding-top: 5px;
+}
+.hnc-input-custom.hnc-radio-wrap .radios .radio-item {
+  display: flex;
+  margin-bottom: 3px;
+}
+.hnc-input-custom.hnc-radio-wrap .radios .radio-item .radio-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  padding-left: 30px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Hide the browser's default checkbox */
+  /* Create a custom radio button */
+  /* On mouse-over, add a grey background color */
+  /* When the radio button is checked, add a blue background */
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  /* Show the indicator (dot/circle) when checked */
+  /* Style the indicator (dot/circle) */
+}
+.hnc-input-custom.hnc-radio-wrap .radios .radio-item .radio-label .radio-input {
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  opacity: 0;
+}
+.hnc-input-custom.hnc-radio-wrap .radios .radio-item .radio-label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.hnc-input-custom.hnc-radio-wrap .radios .radio-item .radio-label .checkmark {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 1px solid var(--colorBlue);
+}
+.hnc-input-custom.hnc-radio-wrap .radios .radio-item .radio-label:hover input ~ .checkmark:after {
+  top: 3px;
+  left: 3px;
+  width: 12px;
+  height: 12px;
+  display: block;
+  border-radius: 50%;
+  background: var(--colorBlueLight);
+}
+.hnc-input-custom.hnc-radio-wrap .radios .radio-item .radio-label input:checked ~ .checkmark {
+  background-color: #fff;
+}
+.hnc-input-custom.hnc-radio-wrap .radios .radio-item .radio-label .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.hnc-input-custom.hnc-radio-wrap .radios .radio-item .radio-label input:checked ~ .checkmark:after {
+  display: block;
+  background: var(--colorBlue);
+}
+.hnc-input-custom.hnc-radio-wrap .radios .radio-item .radio-label .checkmark:after {
+  top: 3px;
+  left: 3px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--colorBlue);
+}
 
-/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22file:///C:/Users/Cuong%2520DEV/source/repos/demo/TagHelpers/TagHelpers/wwwroot/lib/hnc-tag-helpers/hnc-tag-helpers.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22AAAC;EACG;;;AAGJ;EACI;EACA;EACA;EACA;;AAEA;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAGJ;EACI;EACA;EACA;EACA;EACA;EACA;;AAGA;EACI;;AAGJ;EACI;EACA;EACA;EACA;EACA;;AAGJ;EACI;;AAGJ;EACI;EACA;EACA;EACA;EACA;;AAEA;EACI;;AAGJ;EACI;;AAGJ;EACI;;AAMR;EACI;EACA;EACA;EACA;EACA;EACA;;AAKJ;EACI;;AAGJ;EACI;;AAKJ;EACI;EACA;EACA;EACA;EACA;;AAEA;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACI;EACA;EACA;EACA;EACA;;AAEA;EACI;EACA;EACA;EACA;EACA;;AAEA;EACI;;AAQZ;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACI;EACA;EACA;EACA;EACA;;AAGJ;EACI;EACA;;AAEA;EACI;EACA;;AAGJ;EACI;EACA;;AAMhB;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAOI;EACI;EACA;EACA;EACA;EACA;EACA;;AAEA;EACI;EACA;EACA;EACA;EACA;;AAMhB;EACI;EACA;;AAEA;EACI;;AAKZ;EACI;EACA;EACA;EACA;EACA;;AAGJ;EACI;;AAEA;EACI;;AAGJ;EACI;;AAIA;EACI;;AAIR;EACI;EACA;EACA;EACA;EACA%22%7D */
+/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22file:///C:/Users/Cuong%2520DEV/source/repos/demo/TagHelpers/TagHelpers/wwwroot/lib/hnc-tag-helpers/hnc-tag-helpers.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22AAAC;EACG;EACA;;;AAGJ;EACI;EACA;EACA;EACA;;AAEA;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAGJ;EACI;EACA;EACA;EACA;EACA;EACA;;AAEA;EACI;EACA;EACA;;AAEA;EACI;EACA;;AAIR;EACI;;AAGJ;EACI;EACA;EACA;EACA;EACA;;AAGJ;EACI;;AAGJ;EACI;EACA;EACA;EACA;EACA;;AAEA;EACI;;AAGJ;EACI;;AAGJ;EACI;;AAKZ;EACI;EACA;EACA;AAmBA;AASA;AAWA;AAQA;AAMA;AAMA;AAIA;;AA5DA;EACI;;AAGJ;EACI;EACA;EACA;EACA;EACA;EACA;;AAEA;EACI;;AAIR;EACI;EACA;EACA;EACA;EACA;EACA;;AAGJ;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAGJ;EACI;;AAGJ;EACI;;AAGJ;EACI;EACA;;AAIJ;EACI;EACA;EACA;;AAGJ;EACI;;AAGJ;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAKJ;EACI;;AAGJ;EACI;;AAKJ;EACI;EACA;EACA;EACA;EACA;;AAEA;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACI;EACA;EACA;EACA;EACA;;AAEA;EACI;EACA;EACA;EACA;EACA;;AAEA;EACI;;AAQZ;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACI;EACA;EACA;EACA;EACA;;AAGJ;EACI;EACA;;AAEA;EACI;EACA;;AAGJ;EACI;EACA;;AAMhB;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAOI;EACI;EACA;EACA;EACA;EACA;EACA;;AAEA;EACI;EACA;EACA;EACA;EACA;;AAMhB;EACI;EACA;;AAEA;EACI;;AAKZ;EACI;EACA;EACA;EACA;EACA;;AAGJ;EACI;;AAEA;EACI;;AAGJ;EACI;;AAIA;EACI;;AAIR;EACI;EACA;EACA;EACA;EACA;;AAUZ;EACI;EACA;;AAEA;EACI;EACA;;AAEA;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;AASA;AAQA;AAUA;AAUA;AAIA;AAMA;AAKA;;AAlDA;EACI;EACA;EACA;EACA;EACA;;AAGJ;EACI;EACA;EACA;EACA;EACA;;AAGJ;EACI;EACA;EACA;EACA;EACA;EACA;EACA;;AAGJ;EACI;EACA;EACA;EACA;EACA;EACA;EACA;;AAGJ;EACI;;AAGJ;EACI;EACA;EACA;;AAGJ;EACI;EACA;;AAGJ;EACI;EACA;EACA;EACA;EACA;EACA%22%7D */

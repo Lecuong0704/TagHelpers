@@ -58,7 +58,7 @@
                 Id = Guid.NewGuid().ToString();
             }
 
-            var firstHtml = $@"<div class=""hnc-input-custom hnc-select-wrap {multiSelect}"" id={Id}>
+            var firstHtml = $@"<div class=""hnc-input-custom hnc-select-wrap {multiSelect} {ClassName}"" id={Id}>
                                 <div title=""Position"" class=""hnc-label"">{label}</div>
 					                <div class=""hnc-select-box"">
 						                <div class=""select-box"">

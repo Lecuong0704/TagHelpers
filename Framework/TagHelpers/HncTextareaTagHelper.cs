@@ -35,7 +35,7 @@
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
 
-            var firstHtml = $"<div class=\"hnc-input-custom hnc-textarea-wrap\">";
+            var firstHtml = $"<div class=\"hnc-input-custom hnc-textarea-wrap  {ClassName}\">";
             output.Content.SetHtmlContent(firstHtml);
 
             var labelName = string.IsNullOrEmpty(Label) ? For.Name : Label;

@@ -34,18 +34,19 @@
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-            var firstHtml = $"<div class=\"hnc-input-custom hnc-input-wrap\">";
+            var firstHtml = $"<div class=\"hnc-input-custom hnc-input-wrap {ClassName}\">";
             output.Content.SetHtmlContent(firstHtml);
             // Thêm Label
             var labelName = !string.IsNullOrEmpty(Label) ? Label : For.Name;
             var label = $"<div title=\"{labelName}\" class=\"hnc-label\">{labelName}</div>";
+
+            var isCheckbox = For.ModelExplorer.ModelType.Name == "Boolean";
             output.Content.AppendHtml(label);
-            if (For.ModelExplorer.ModelType.Name != "Boolean")
-            {
-                // Thêm Icon
-                var icon = "<div class=\"hnc-input-box\">";
-                output.Content.AppendHtml(icon);
-            }
+
+            var isCheckboxClassName = isCheckbox ? "is-checkbox" : "";
+
+            var inputBox = $"<div class=\"hnc-input-box {isCheckboxClassName}\">";
+            output.Content.AppendHtml(inputBox);
 
             //container for additional attributes
             var htmlAttributes = new Dictionary<string, object>();
@@ -65,12 +66,17 @@
             var htmlOutput = _htmlHelper.Editor(For.Name, null, new { htmlAttributes });
 
             output.Content.AppendHtml(htmlOutput);
-            if (For.ModelExplorer.ModelType.Name != "Boolean")
+            if (!isCheckbox)
             {
                 var iconClassName = !string.IsNullOrEmpty(IconClassName) ? IconClassName : "fas fa-align-left";
-                output.Content.AppendHtml($"<div class=\"icon-box\"> <i class=\"{iconClassName}\"></i></div></div>");
+                output.Content.AppendHtml($"<div class=\"icon-box\"> <i class=\"{iconClassName}\"></i></div>");
             }
-            var lastHtml = "</div>";
+            else
+            {
+                var checkmark = $"<span class=\"checkmark\"></span>";
+                output.Content.AppendHtml(checkmark);
+            }
+            var lastHtml = "</div></div>";
             output.Content.AppendHtml(lastHtml);
 
         }

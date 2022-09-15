@@ -1,5 +1,6 @@
 ﻿* {
     --colorBlue: #659BE0;
+    --colorBlueLight: #c5d7ed;
 }
 
 .hnc-input-custom {
@@ -28,6 +29,16 @@
         font-size: 14px;
         flex-direction: row-reverse;
 
+        &.is-checkbox {
+            border: none;
+            justify-content: flex-start;
+            flex-direction: row;
+
+            .check-box {
+                flex-grow: unset;
+                height: 20px;
+            }
+        }
 
         &:focus-within {
             border: 1px solid #659BE0;
@@ -66,14 +77,83 @@
         }
     }
 
-    .hnc-input {
+    .is-checkbox {
+        position: relative;
+        padding-top: 6px;
+        border: none;
+        
+
+        &:focus-within {
+            border: none;
+        }
+
         &.check-box {
             padding: 0;
-            margin-top: 5px;
+            margin-top: 6px;
             cursor: pointer;
             transition: none;
-            width: 25px;
-            height: 25px;
+            width: 20px;
+            height: 20px;
+
+            &:checked ~ .checkmark {
+                background-color: var(--colorBlue);
+            }
+        }
+        /* Hide the browser's default checkbox */
+        & input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            z-index: 2;
+        }
+        /* Create a custom checkbox */
+        .checkmark {
+            position: absolute;
+            top: 6px;
+            left: 0;
+            height: 20px;
+            width: 20px;
+            background-color: #fff;
+            border-radius: 3px;
+            border: 1px solid var(--colorBlue);
+        }
+        /* On mouse-over, add a grey background color */
+        &:hover input ~ .checkmark {
+            background-color: var(--colorBlueLight);
+        }
+
+        &:hover input ~ .checkmark:after {
+            display: block;
+        }
+        /* When the checkbox is checked, add a blue background */
+        & input:checked ~ .checkmark {
+            display: block;
+            background: var(--colorBlue);
+        }
+       
+        /* Create the checkmark/indicator (hidden when not checked) */
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+        /* Show the checkmark when checked */
+        & input:checked ~ .checkmark:after {
+            display: block;
+        }
+        /* Style the checkmark/indicator */
+        & .checkmark:after {
+            left: 6px;
+            top: 3px;
+            width: 6px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
         }
     }
 
@@ -251,6 +331,93 @@
                     box-shadow: 0px 2px 2px 2px #ddd;
                     border: #ddd 1px solid;
                     border-top: none;
+                }
+            }
+        }
+    }
+
+    &.hnc-radio-wrap {
+        .hnc-label {
+        }
+
+        .radios {
+            width: 70%;
+            padding-top: 5px;
+
+            .radio-item {
+                display: flex;
+                margin-bottom: 3px;
+
+                .radio-label {
+                    display: flex;
+                    align-items: center;
+                    cursor: pointer;
+                    position: relative;
+                    padding-left: 30px;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+
+                    .radio-input {
+                        margin-right: 10px;
+                        width: 20px;
+                        height: 20px;
+                        cursor: pointer;
+                        opacity: 0;
+                    }
+                    /* Hide the browser's default checkbox */
+                    & input {
+                        position: absolute;
+                        opacity: 0;
+                        cursor: pointer;
+                        height: 0;
+                        width: 0;
+                    }
+                    /* Create a custom radio button */
+                    .checkmark {
+                        position: absolute;
+                        top: 2px;
+                        left: 0;
+                        height: 20px;
+                        width: 20px;
+                        border-radius: 50%;
+                        border: 1px solid var(--colorBlue);
+                    }
+                    /* On mouse-over, add a grey background color */
+                    &:hover input ~ .checkmark:after {
+                        top: 3px;
+                        left: 3px;
+                        width: 12px;
+                        height: 12px;
+                        display: block;
+                        border-radius: 50%;
+                        background: var(--colorBlueLight);
+                    }
+                    /* When the radio button is checked, add a blue background */
+                    & input:checked ~ .checkmark {
+                        background-color: #fff;
+                    }
+                    /* Create the indicator (the dot/circle - hidden when not checked) */
+                    .checkmark:after {
+                        content: "";
+                        position: absolute;
+                        display: none;
+                    }
+                    /* Show the indicator (dot/circle) when checked */
+                    & input:checked ~ .checkmark:after {
+                        display: block;
+                        background: var(--colorBlue);
+                    }
+                    /* Style the indicator (dot/circle) */
+                    & .checkmark:after {
+                        top: 3px;
+                        left: 3px;
+                        width: 12px;
+                        height: 12px;
+                        border-radius: 50%;
+                        background: var(--colorBlue);
+                    }
                 }
             }
         }
